@@ -2,13 +2,17 @@
 #include "macros/fenetre.h"
 #include "macros/grille.h"
 #include "macros/bouton.h"
+#include "macros/css.h"
+#include "macros/conteneurs.h"
 
 int main(int argc, char *argv[])
 {
   initialiser(&argc, &argv);
 
+  css_appliquer("style.css");
+
   Widget *f = fenetre_creer(
-           .titre="Ma fenetre",
+           .titre="Inscription ILIS",
            .estPrincipale=TRUE,
            .dim={1000, 500}),
          *grille = grille_creer(),

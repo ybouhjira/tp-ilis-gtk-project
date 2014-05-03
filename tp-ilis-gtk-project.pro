@@ -3,7 +3,8 @@ CONFIG += console
 CONFIG -= app_bundle
 CONFIG -= qt
 
-SOURCES += main.c
+SOURCES += main.c \
+    login_page.c
 
 HEADERS += \
     macros/css.h \
@@ -11,7 +12,8 @@ HEADERS += \
     macros/fenetre.h \
     macros/grille.h \
     macros/bouton.h \
-    macros/conteneurs.h
+    macros/conteneurs.h \
+    login_page.h
 
 INCLUDEPATH += /usr/include/gtk-3.0 \
 /usr/include/glib-3.0 \

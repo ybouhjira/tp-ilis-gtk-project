@@ -62,6 +62,9 @@ func_head(Widget*, fenetre_creer)
   //// padding
   gtk_container_set_border_width(GTK_CONTAINER(widget), padding);
 
+  ////
+  gtk_window_set_position(GTK_WINDOW(widget), GTK_WIN_POS_CENTER);
+
   return widget;
 }
 
