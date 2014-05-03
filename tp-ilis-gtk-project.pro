@@ -9,7 +9,8 @@ HEADERS += \
     macros/css.h \
     macros/macors.h \
     macros/fenetre.h \
-    macros/grille.h
+    macros/grille.h \
+    macros/bouton.h
 
 INCLUDEPATH += /usr/include/gtk-3.0 \
 /usr/include/glib-3.0 \
