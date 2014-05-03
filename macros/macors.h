@@ -24,16 +24,34 @@
 
 
 #define func_head(type, name) \
-         type variadic_##name(variadic_type_##name x)
+  type variadic_##name(variadic_type_##name x)
 
 #define func_declare(type, name, ...) \
-        typedef struct {            \
-                    __VA_ARGS__       ;  \
-                } variadic_type_##name;     \
-    func_head(type, name);
+  typedef struct {                    \
+  __VA_ARGS__       ;                 \
+  } variadic_type_##name;             \
+  func_head(type, name);
 
 #define param_default(name, value) name = x.name ? x.name : (value)
 #define func_link(name,...) \
-        variadic_##name((variadic_type_##name) {__VA_ARGS__})
+  variadic_##name((variadic_type_##name) {__VA_ARGS__})
+
+/**
+ * Typedefs
+ */
+#include <gtk/gtk.h>
+
+typedef gboolean boolean;
+
+typedef struct { int l, L ;} Dimensions;
+
+typedef GtkWidget Widget;
+
+/**
+ * gtk
+ */
+#define initialiser gtk_init
+#define lancer      gtk_main
+#define quitter     gtk_ma in_quit
 
 #endif // MACROS_H

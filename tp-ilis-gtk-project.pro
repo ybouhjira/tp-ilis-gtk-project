@@ -3,12 +3,13 @@ CONFIG += console
 CONFIG -= app_bundle
 CONFIG -= qt
 
-SOURCES += main.c \
-    macros/css.c
+SOURCES += main.c
 
 HEADERS += \
     macros/css.h \
-    macros/macors.h
+    macros/macors.h \
+    macros/fenetre.h \
+    macros/grille.h
 
 INCLUDEPATH += /usr/include/gtk-3.0 \
 /usr/include/glib-3.0 \
