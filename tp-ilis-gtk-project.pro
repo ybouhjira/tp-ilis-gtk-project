@@ -10,7 +10,8 @@ HEADERS += \
     macros/macors.h \
     macros/fenetre.h \
     macros/grille.h \
-    macros/bouton.h
+    macros/bouton.h \
+    macros/conteneurs.h
 
 INCLUDEPATH += /usr/include/gtk-3.0 \
 /usr/include/glib-3.0 \

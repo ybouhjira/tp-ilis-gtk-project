@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
          *grille = grille_creer(),
          *bouton = bouton_creer("Cliquer ici");
 
-  fenetre_ajouter(f, grille);
+  conteneur_ajouter(f, grille);
 
   grille_attacher(grille, bouton, 0, 0, 1, 1);
 

@@ -68,8 +68,5 @@ func_head(Widget*, fenetre_creer)
 // afficher la fenetre
 #define fenetre_afficher gtk_widget_show_all
 
-// ajouter une grille dans la fenetre
-#define fenetre_ajouter(fen, grid)\
-  gtk_container_add(GTK_CONTAINER(fen), grid)
 
 #endif // FENETRE_H
