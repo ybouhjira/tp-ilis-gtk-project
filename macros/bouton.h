@@ -2,6 +2,9 @@
 #define BOUTON_H
 
 #include "macors.h"
+
+#include <string.h>
+
 /** Entrées :
   *   texte : texte du bouton
   *   icon : icon du bouton

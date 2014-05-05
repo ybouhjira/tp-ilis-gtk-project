@@ -4,16 +4,19 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += main.c \
-    login_page.c
+    macros/conteneurs.c \
+    pages.c
 
 HEADERS += \
     macros/css.h \
     macros/macors.h \
     macros/fenetre.h \
-    macros/grille.h \
     macros/bouton.h \
     macros/conteneurs.h \
-    login_page.h
+    macros/case.h \
+    macros/etiquette.h \
+    pages.h \
+    etudiant.h
 
 INCLUDEPATH += /usr/include/gtk-3.0 \
 /usr/include/glib-3.0 \
@@ -27,3 +30,6 @@ INCLUDEPATH += /usr/include/gtk-3.0 \
 
 unix: CONFIG += link_pkgconfig
 unix: PKGCONFIG += gtk+-3.0
+
+QMAKE_CFLAGS += -Wno-unused-parameter -std=c99 -Wno-missing-field-initializers
+

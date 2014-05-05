@@ -16,11 +16,11 @@
   */
 func_declare(Widget*, fenetre_creer,
   char *titre;
+  boolean estPrincipale;
+  Dimensions dim;
   char *icon;
   boolean redimonsinable;
-  boolean estPrincipale;
   int padding;
-  Dimensions dim;
 )
 
 #define fenetre_creer(...) func_link(fenetre_creer, __VA_ARGS__)

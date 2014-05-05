@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include "macros/fenetre.h"
-#include "macros/grille.h"
-#include "macros/bouton.h"
 #include "macros/css.h"
 #include "macros/conteneurs.h"
+
+#include "pages.h"
 
 int main(int argc, char *argv[])
 {
@@ -11,17 +11,12 @@ int main(int argc, char *argv[])
 
   css_appliquer("style.css");
 
-  Widget *f = fenetre_creer(
-           .titre="Inscription ILIS",
-           .estPrincipale=TRUE,
-           .dim={1000, 500}),
-         *grille = grille_creer(),
-         *bouton = bouton_creer("Cliquer ici");
+  Widget *f = fenetre_creer("Inscription ILIS", TRUE, {1000, 500}),
+         *stack = conteneur_pile_creer();
 
-  conteneur_ajouter(f, grille);
+  conteneur_ajouter(f, stack);
 
-  grille_attacher(grille, bouton, 0, 0, 1, 1);
-
+  conteneur_pile_ajouter(stack, login_page_creer(), "login");
 
   fenetre_afficher(f);
   lancer();
