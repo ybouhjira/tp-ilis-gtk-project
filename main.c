@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
   conteneur_ajouter(f, stack);
   conteneur_largeur_bordure(stack, 20);
 
-  conteneur_pile_ajouter(stack, login_page_creer(), "login");
+  //conteneur_pile_ajouter(stack, login_page_creer(), "login");
   conteneur_pile_ajouter(stack, page_etudiant_creer(), "etudiant");
 
   // this is temporary

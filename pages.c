@@ -5,6 +5,7 @@
 #include "macros/case.h"
 #include "macros/etiquette.h"
 #include "macros/bouton.h"
+#include "macros/list.h"
 
 #include <gtk/gtk.h>
 #include <string.h>
@@ -59,11 +60,12 @@ Widget *page_etudiant_creer()
        , *cne = case_creer(FALSE)
 
        // Onglet Diplome
-       , *diplome = case_creer(FALSE)
        , *etab = case_creer(FALSE)
        , *specialite = case_creer(FALSE)
        , *nbrAns = case_creer(FALSE)
        , *anObtention = case_creer(FALSE)
+       , *diplome = list_creer(7, "DUT", "DEUG", "DEUST", "LICENCE", "MAITRISE",
+                              "MASTER", "CPGE")
 
        // Onglet notes
        , *notes[NBR_NOTES];

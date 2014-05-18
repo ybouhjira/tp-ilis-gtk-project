@@ -8,7 +8,8 @@ SOURCES += main.c \
     pages.c \
     callbacks.c \
     file.c \
-    etudiant.c
+    etudiant.c \
+    macros/list.c
 
 HEADERS += \
     macros/css.h \
@@ -21,7 +22,8 @@ HEADERS += \
     pages.h \
     etudiant.h \
     callbacks.h \
-    file.h
+    file.h \
+    macros/list.h
 
 INCLUDEPATH += /usr/include/gtk-3.0 \
 /usr/include/glib-3.0 \
