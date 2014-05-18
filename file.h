@@ -12,6 +12,6 @@ GKeyFile* fichier_ouvrir(const char *filename);
 gboolean fichier_supprimer(GKeyFile *file, const char *cne);
 
 // Ajouter un etudiant
-void fichier_ajouter_etudiant(GKeyFile *file, Etudiant etud);
+void fichier_modifier_etudiant(GKeyFile *file, Etudiant etud);
 
 #endif // FILE_H

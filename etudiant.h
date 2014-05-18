@@ -36,3 +36,8 @@ typedef struct Etudiant
  * Retourne le nombre de notes pour le diplome dip
  */
 int nbr_notes(Diplome dip);
+
+/**
+ * Convertit une chaine de carateres en enum Diplome
+ */
+Diplome str_to_dipl(char *str);
