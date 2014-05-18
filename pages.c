@@ -36,10 +36,11 @@ Widget *login_page_creer()
   grille_attacher(grid, okBtn, 0, 2, 2, 1);
   grille_attacher(grid, signupBtn, 0, 3, 2, 1);
 
+  conteneur_largeur_bordure(frame, 20);
   return align;
 }
 
-Widget *student_page_creer()
+Widget *page_etudiant_creer()
 {
   Widget *frame = cadre_creer("")
        , *notbk = onglets_creer()
@@ -70,14 +71,21 @@ Widget *student_page_creer()
   for(i = 0; i < NBR_NOTES; ++i) notes[i] = case_creer(FALSE);
 
   // conteneurs
-  grille_attacher(mainGrid, frame, 0, 0, 1, 1);
-  grille_attacher(mainGrid, okBtn, 0, 1, 1, 1);
+  conteneur_ajouter(frame, mainGrid);
 
-  conteneur_ajouter(frame, notbk);
+  grille_attacher(mainGrid, notbk, 0, 0, 1, 1);
+  grille_attacher(mainGrid, okBtn, 0, 1, 1, 1);
 
   onglets_ajouter(notbk, pageInfo, "Informations personelles");
   onglets_ajouter(notbk, pageDiplome, "Diplome");
-  onglets_ajouter(notbk, pageNote, "Note");
+  onglets_ajouter(notbk, pageNote, "Notes");
+
+  conteneur_largeur_bordure(pageInfo, 20);
+  conteneur_largeur_bordure(pageDiplome, 20);
+  conteneur_largeur_bordure(pageNote, 20);
+
+  conteneur_largeur_bordure(mainGrid, 20);
+  conteneur_largeur_bordure(frame, 20);
 
   // Infos
   grille_attacher(pageInfo, etiquette_creer("Nom"),      0, 0, 1, 1);
@@ -93,27 +101,27 @@ Widget *student_page_creer()
   grille_attacher(pageInfo, cne,     1, 4, 1, 1);
 
   // Diplome
-  grille_attacher(pageInfo, etiquette_creer("Diplome"),         0, 0, 1, 1);
-  grille_attacher(pageInfo, etiquette_creer("Spécialité"),      0, 1, 1, 1);
-  grille_attacher(pageInfo, etiquette_creer("Etablissement"),   0, 2, 1, 1);
-  grille_attacher(pageInfo, etiquette_creer("Nombre d'années"), 0, 3, 1, 1);
-  grille_attacher(pageInfo, etiquette_creer("An d'obtention"),  0, 4, 1, 1);
+  grille_attacher(pageDiplome, etiquette_creer("Diplome"),         0, 0, 1, 1);
+  grille_attacher(pageDiplome, etiquette_creer("Spécialité"),      0, 1, 1, 1);
+  grille_attacher(pageDiplome, etiquette_creer("Etablissement"),   0, 2, 1, 1);
+  grille_attacher(pageDiplome, etiquette_creer("Nombre d'années"), 0, 3, 1, 1);
+  grille_attacher(pageDiplome, etiquette_creer("An d'obtention"),  0, 4, 1, 1);
 
-  grille_attacher(pageInfo, diplome,       1, 0, 1, 1);
-  grille_attacher(pageInfo, etab,          1, 1, 1, 1);
-  grille_attacher(pageInfo, specialite,    1, 2, 1, 1);
-  grille_attacher(pageInfo, nbrAns,        1, 3, 1, 1);
-  grille_attacher(pageInfo, anObtention,   1, 4, 1, 1);
+  grille_attacher(pageDiplome, diplome,       1, 0, 1, 1);
+  grille_attacher(pageDiplome, etab,          1, 1, 1, 1);
+  grille_attacher(pageDiplome, specialite,    1, 2, 1, 1);
+  grille_attacher(pageDiplome, nbrAns,        1, 3, 1, 1);
+  grille_attacher(pageDiplome, anObtention,   1, 4, 1, 1);
 
   // Notes
   for(i = 0; i < NBR_NOTES; ++i)
     {
       char label[6];
-      sprintf(label, "Note %d", i);
-      grille_attacher(pageInfo, etiquette_creer(label), 0, i, 1, 1);
-      grille_attacher(pageInfo, notes[i], 1, i, 1, 1);
+      sprintf(label, "Note %d", i + 1);
+      grille_attacher(pageNote, etiquette_creer(label), 0, i, 1, 1);
+      grille_attacher(pageNote, notes[i], 1, i, 1, 1);
     }
 
 
-  return mainGrid;
+  return frame;
 }

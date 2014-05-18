@@ -6,4 +6,7 @@
 // Crée la page de login
 Widget *login_page_creer();
 
+// Crée la page dans laquelle l'étudiant s'inscrie ou modifie ses infos
+Widget *page_etudiant_creer();
+
 #endif // LOGIN_PAGE_H

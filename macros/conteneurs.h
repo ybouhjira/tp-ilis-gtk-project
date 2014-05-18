@@ -21,6 +21,9 @@
 #define conteneur_pile_ajouter(stack, widget, nom) \
   gtk_stack_add_named(GTK_STACK(stack), widget, nom)
 
+#define conteneur_pile_afficher(stack, nom) \
+  gtk_stack_set_visible_child_name(GTK_STACK(stack), nom);
+
 //Grid
 Widget *grille_creer(int row, int col);
 

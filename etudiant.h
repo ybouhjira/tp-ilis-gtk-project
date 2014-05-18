@@ -3,6 +3,7 @@
 
 #endif // ETUDIANT_H
 
+#define str(enum) #enum
 
 /**
   * Diplome
@@ -22,7 +23,7 @@ typedef struct Etudiant
     char motDePasse[25];
     char cin[20];
     char cne[20];
-    float notes[NBR_NOTES];
+    double notes[NBR_NOTES];
 
     Diplome diplome;
     char specialite[100];
@@ -30,3 +31,8 @@ typedef struct Etudiant
     int nbrAns;
     int anDiplome;
 } Etudiant;
+
+/**
+ * Retourne le nombre de notes pour le diplome dip
+ */
+int nbr_notes(Diplome dip);

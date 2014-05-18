@@ -5,7 +5,10 @@ CONFIG -= qt
 
 SOURCES += main.c \
     macros/conteneurs.c \
-    pages.c
+    pages.c \
+    callbacks.c \
+    file.c \
+    etudiant.c
 
 HEADERS += \
     macros/css.h \
@@ -16,7 +19,9 @@ HEADERS += \
     macros/case.h \
     macros/etiquette.h \
     pages.h \
-    etudiant.h
+    etudiant.h \
+    callbacks.h \
+    file.h
 
 INCLUDEPATH += /usr/include/gtk-3.0 \
 /usr/include/glib-3.0 \
