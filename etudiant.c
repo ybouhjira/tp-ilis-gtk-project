@@ -17,13 +17,11 @@ int nbr_notes(Diplome dip)
 
 Diplome str_to_dipl(char *str)
 {
-  #define map(a) if(!strcmp(a, #a)) return a
-
-  map(DUT);
-  map(DEUG);
-  map(DEUST);
-  map(LICENCE);
-  map(MAITRISE);
-  map(MASTER);
-  map(CPGE);
+  if(!strcmp(str, "DUT"))      return DUT;
+  if(!strcmp(str, "DEUG"))     return DEUG;
+  if(!strcmp(str, "DEUST"))    return DEUST;
+  if(!strcmp(str, "LICENCE"))  return LICENCE;
+  if(!strcmp(str, "MAITRISE")) return MAITRISE;
+  if(!strcmp(str, "MASTER"))   return MASTER;
+  return CPGE;
 }

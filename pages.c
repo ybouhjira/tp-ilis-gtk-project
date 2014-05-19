@@ -6,9 +6,11 @@
 #include "macros/etiquette.h"
 #include "macros/bouton.h"
 #include "macros/list.h"
+#include "callbacks.h"
 
 #include <gtk/gtk.h>
 #include <string.h>
+#include <stdlib.h>
 
 Widget *login_page_creer()
 {
@@ -116,14 +118,24 @@ Widget *page_etudiant_creer()
   grille_attacher(pageDiplome, anObtention,   1, 4, 1, 1);
 
   // Notes
+  Widget *notesLabels[NBR_NOTES];
   for(i = 0; i < NBR_NOTES; ++i)
     {
       char label[6];
       sprintf(label, "Note %d", i + 1);
-      grille_attacher(pageNote, etiquette_creer(label), 0, i, 1, 1);
+      notesLabels[i] = etiquette_creer(label);
+      grille_attacher(pageNote, notesLabels[i], 0, i, 1, 1);
       grille_attacher(pageNote, notes[i], 1, i, 1, 1);
     }
 
+  // callbacks
+  Widget **widgetsNotes = malloc(sizeof(Widget*) * NBR_NOTES * 2);
 
+  for (i = 0; i < NBR_NOTES; i++) widgetsNotes[i] = notes[i];
+  for (i = NBR_NOTES; i < NBR_NOTES * 2; i++)
+    widgetsNotes[i] = notesLabels[i - NBR_NOTES];
+
+  g_signal_connect(G_OBJECT(diplome), "changed",
+                   G_CALLBACK(cacher_notes), widgetsNotes);
   return frame;
 }
