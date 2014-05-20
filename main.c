@@ -2,6 +2,7 @@
 #include "macros/fenetre.h"
 #include "macros/css.h"
 #include "macros/conteneurs.h"
+#include "macros/warn.h"
 
 #include "pages.h"
 
@@ -17,6 +18,8 @@ int main(int argc, char *argv[])
   initialiser(&argc, &argv);
 
   css_appliquer("style.css");
+
+  msg(NULL, "Hi there %s %s", "Youssef", "Bouhjira");
 
   Widget *f = fenetre_creer("Inscription ILIS", TRUE, {1000, 500}),
          *stack = conteneur_pile_creer();
