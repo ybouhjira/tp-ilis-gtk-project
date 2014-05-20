@@ -4,6 +4,7 @@
 #include "macros/list.h"
 #include "macros/conteneurs.h"
 #include "macros/case.h"
+#include "macros/warn.h"
 
 void cacher_notes(Widget *dipl, void *widgets)
 {
@@ -33,12 +34,14 @@ void inscrire_etudiant(Widget *btn, void* widgets)
   GRegex *regex = g_regex_new("^[_a-z0-9-]+(\\.[_a-z0-9-]+)*"
               "@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,4})$", 0, 0, NULL);
 
-//  if(g_regex_match(regex, case_text(entries[0]), 0, 0))
-//  {
+  Widget *win = gtk_widget_get_toplevel(btn);
+  if(g_regex_match(regex, case_text(entries[0]), 0, 0))
+    {
+    msg(win, "email valid");
+    }
+  else
+    {
+    msg(win, "email invalide");
+    }
 
-//    }
-//  else
-//    {
-
-//    }
 }

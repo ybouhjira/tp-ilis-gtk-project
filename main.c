@@ -19,8 +19,6 @@ int main(int argc, char *argv[])
 
   css_appliquer("style.css");
 
-  msg(NULL, "Hi there %s %s", "Youssef", "Bouhjira");
-
   Widget *f = fenetre_creer("Inscription ILIS", TRUE, {1000, 500}),
          *stack = conteneur_pile_creer();
 
@@ -33,7 +31,7 @@ int main(int argc, char *argv[])
   conteneur_pile_ajouter(stack, pgLogin, "login");
   conteneur_pile_ajouter(stack, pgEtud, "etudiant");
 
-  g_timeout_add(500, switch_page, stack);
+  //g_timeout_add(500, switch_page, stack);
 
   fenetre_afficher(f);
   lancer();
