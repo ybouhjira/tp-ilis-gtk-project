@@ -15,9 +15,9 @@
   */
 func_declare(Widget*, bouton_creer,
   char *texte;
-  char *icon;
   void (*callback)(Widget* widget, void* data);
-  void* data;)
+  void* data;
+  char *icon;)
 
 #define bouton_creer(...) func_link(bouton_creer, __VA_ARGS__)
 

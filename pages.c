@@ -12,7 +12,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-Widget *login_page_creer()
+Widget *page_login_creer()
 {
   Widget *frame = cadre_creer("")
        , *grid = grille_creer(10, 10)
@@ -20,26 +20,46 @@ Widget *login_page_creer()
 
        , *emailCase = case_creer(FALSE)
        , *passCase = case_creer(TRUE)
+       , *passConfirm = case_creer(TRUE)
 
        , *emailLbl = etiquette_creer("E-mail")
        , *passLbl = etiquette_creer("Mot de Passe")
+       , *passCnfrmLbl = etiquette_creer("Confirmer le mot de passe")
 
-       , *okBtn = bouton_creer("OK")
-       , *signupBtn = bouton_creer("S'inscrire");
+       , *okBtn = bouton_creer("Login");
+
+
+
+  // Confirmer le mot de passe
+  Widget **cnfrms = malloc(sizeof(Widget*) * 3);
+
+  cnfrms[0] = passCnfrmLbl;
+  cnfrms[1] = passConfirm;
+  cnfrms[2] = grid;
+
+  // lier le bouton d'inscrire avec le callback ajouter_confirm_pass
+  Widget *signupBtn = bouton_creer("S'inscrire", ajouter_confirm_pass, cnfrms);
+
+
 
   conteneur_ajouter(align, frame);
   conteneur_ajouter(frame, grid);
 
   conteneur_largeur_bordure(grid, 40);
 
-  grille_attacher(grid, emailLbl, 0, 0, 1, 1);
-  grille_attacher(grid, emailCase, 1, 0, 1, 1);
-  grille_attacher(grid, passLbl, 0, 1, 1, 1);
-  grille_attacher(grid, passCase, 1, 1, 1, 1);
-  grille_attacher(grid, okBtn, 0, 2, 2, 1);
-  grille_attacher(grid, signupBtn, 0, 3, 2, 1);
+  grille_attacher(grid, emailLbl,     0, 0, 1, 1);
+  grille_attacher(grid, emailCase,    1, 0, 1, 1);
+
+  grille_attacher(grid, passLbl,      0, 1, 1, 1);
+  grille_attacher(grid, passCase,     1, 1, 1, 1);
+
+  grille_attacher(grid, okBtn,        0, 3, 2, 1);
+  grille_attacher(grid, signupBtn,    0, 4, 2, 1);
 
   conteneur_largeur_bordure(frame, 20);
+
+  // callbacks
+
   return align;
 }
 

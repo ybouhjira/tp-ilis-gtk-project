@@ -9,7 +9,8 @@ SOURCES += main.c \
     callbacks.c \
     file.c \
     etudiant.c \
-    macros/list.c
+    macros/list.c \
+    macros/case.c
 
 HEADERS += \
     macros/css.h \

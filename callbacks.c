@@ -2,6 +2,7 @@
 #include "etudiant.h"
 #include "macros/etiquette.h"
 #include "macros/list.h"
+#include "macros/conteneurs.h"
 
 void cacher_notes(Widget *dipl, void *widgets)
 {
@@ -21,4 +22,19 @@ void cacher_notes(Widget *dipl, void *widgets)
   if(actvDipl == CPGE) etiquette_text(notes[NBR_NOTES], "Classement");
   else
       etiquette_text(notes[NBR_NOTES], "Note 1");
+}
+
+
+void ajouter_confirm_pass(Widget* btnInscrir, void* widgets)
+{
+  // label confirmer, entry, & grid
+  Widget **confrms = widgets;
+
+  printf("%p, %p, %p\n", confrms[0], confrms[1], confrms[2]);
+
+  grille_attacher(confrms[2], confrms[0], 0, 2, 1, 1);
+  grille_attacher(confrms[2], confrms[1],  1, 2, 1, 1);
+
+  widget_afficher(confrms[0], TRUE);
+  widget_afficher(confrms[1], TRUE);
 }
