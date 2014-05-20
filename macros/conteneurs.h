@@ -16,7 +16,7 @@
 #define cadre_creer gtk_frame_new
 
 // Stack
-#define conteneur_pile_creer gtk_stack_new
+Widget *conteneur_pile_creer();
 
 #define conteneur_pile_ajouter(stack, widget, nom) \
   gtk_stack_add_named(GTK_STACK(stack), widget, nom)
