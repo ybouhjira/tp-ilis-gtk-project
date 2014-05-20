@@ -20,26 +20,16 @@ Widget *page_login_creer()
 
        , *emailCase = case_creer(FALSE)
        , *passCase = case_creer(TRUE)
-       , *passConfirm = case_creer(TRUE)
 
        , *emailLbl = etiquette_creer("E-mail")
        , *passLbl = etiquette_creer("Mot de Passe")
-       , *passCnfrmLbl = etiquette_creer("Confirmer le mot de passe")
 
        , *okBtn = bouton_creer("Login");
 
-
-
-  // Confirmer le mot de passe
-  Widget **cnfrms = malloc(sizeof(Widget*) * 3);
-
-  cnfrms[0] = passCnfrmLbl;
-  cnfrms[1] = passConfirm;
-  cnfrms[2] = grid;
-
-  // lier le bouton d'inscrire avec le callback ajouter_confirm_pass
-  Widget *signupBtn = bouton_creer("S'inscrire", ajouter_confirm_pass, cnfrms);
-
+  Widget **emailPass = malloc(sizeof(Widget*) * 2);
+  emailPass[0] = emailCase;
+  emailPass[1] = passCase;
+  Widget *signupBtn = bouton_creer("S'inscrire", inscrire_etudiant, emailPass);
 
 
   conteneur_ajouter(align, frame);

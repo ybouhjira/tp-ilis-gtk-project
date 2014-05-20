@@ -7,6 +7,9 @@
 void cacher_notes(Widget *dipl, void* widgets);
 
 // afficher/cacher la case confirmer mot de passe
-void ajouter_confirm_pass(Widget* btnInscrir, void* widgets);
+//void ajouter_confirm_pass(Widget* btnInscrir, void* widgets);
+
+// inscrire un étudiant
+void inscrire_etudiant(Widget *btn, void* widgets);
 
 #endif // CALLBACKS_H

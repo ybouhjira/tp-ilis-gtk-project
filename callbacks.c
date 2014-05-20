@@ -3,6 +3,7 @@
 #include "macros/etiquette.h"
 #include "macros/list.h"
 #include "macros/conteneurs.h"
+#include "macros/case.h"
 
 void cacher_notes(Widget *dipl, void *widgets)
 {
@@ -24,17 +25,20 @@ void cacher_notes(Widget *dipl, void *widgets)
       etiquette_text(notes[NBR_NOTES], "Note 1");
 }
 
-
-void ajouter_confirm_pass(Widget* btnInscrir, void* widgets)
+void inscrire_etudiant(Widget *btn, void* widgets)
 {
-  // label confirmer, entry, & grid
-  Widget **confrms = widgets;
+  // email & password
+  Widget **entries = widgets;
 
-  printf("%p, %p, %p\n", confrms[0], confrms[1], confrms[2]);
+  GRegex *regex = g_regex_new("^[_a-z0-9-]+(\\.[_a-z0-9-]+)*"
+              "@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,4})$", 0, 0, NULL);
 
-  grille_attacher(confrms[2], confrms[0], 0, 2, 1, 1);
-  grille_attacher(confrms[2], confrms[1],  1, 2, 1, 1);
+//  if(g_regex_match(regex, case_text(entries[0]), 0, 0))
+//  {
 
-  widget_afficher(confrms[0], TRUE);
-  widget_afficher(confrms[1], TRUE);
+//    }
+//  else
+//    {
+
+//    }
 }

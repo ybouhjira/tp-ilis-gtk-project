@@ -5,12 +5,12 @@
 
 #include "pages.h"
 
-//gboolean switch_page(gpointer stack)
-//{
-//  Widget *wstack = stack;
-//  conteneur_pile_afficher(wstack, "etudiant");
-//  return FALSE;
-//}
+gboolean switch_page(gpointer stack)
+{
+  Widget *wstack = stack;
+  conteneur_pile_afficher(wstack, "etudiant");
+  return FALSE;
+}
 
 int main(int argc, char *argv[])
 {
@@ -25,12 +25,12 @@ int main(int argc, char *argv[])
   conteneur_largeur_bordure(stack, 20);
 
   Widget *pgLogin = page_login_creer()
-       ;//, *pgEtud = page_etudiant_creer();
+       , *pgEtud = page_etudiant_creer();
 
   conteneur_pile_ajouter(stack, pgLogin, "login");
-  //conteneur_pile_ajouter(stack, pgEtud, "etudiant");
+  conteneur_pile_ajouter(stack, pgEtud, "etudiant");
 
-  //g_timeout_add(3000, switch_page, stack);
+  g_timeout_add(500, switch_page, stack);
 
   fenetre_afficher(f);
   lancer();

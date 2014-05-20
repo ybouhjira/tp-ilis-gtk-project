@@ -24,7 +24,8 @@ HEADERS += \
     etudiant.h \
     callbacks.h \
     file.h \
-    macros/list.h
+    macros/list.h \
+    macros/warn.h
 
 INCLUDEPATH += /usr/include/gtk-3.0 \
 /usr/include/glib-3.0 \
