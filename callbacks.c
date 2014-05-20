@@ -6,6 +6,8 @@
 #include "macros/case.h"
 #include "macros/warn.h"
 
+#include <string.h>
+
 void cacher_notes(Widget *dipl, void *widgets)
 {
   // TODO
@@ -29,19 +31,26 @@ void cacher_notes(Widget *dipl, void *widgets)
 void inscrire_etudiant(Widget *btn, void* widgets)
 {
   // email & password
-  Widget **entries = widgets;
+  Widget **entries = widgets
+       , *win = gtk_widget_get_toplevel(btn);
 
-  GRegex *regex = g_regex_new("^[_a-z0-9-]+(\\.[_a-z0-9-]+)*"
+  GRegex *regexEmail = g_regex_new("^[_a-z0-9-]+(\\.[_a-z0-9-]+)*"
               "@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,4})$", 0, 0, NULL);
 
-  Widget *win = gtk_widget_get_toplevel(btn);
-  if(g_regex_match(regex, case_text(entries[0]), 0, 0))
+
+  const char *email = case_text(entries[0])
+           , *pass = case_text(entries[1]);
+
+  if(!g_regex_match(regexEmail, email, 0, 0))
     {
-    msg(win, "email valid");
+      msg(win, "email invali");
+      return;
     }
-  else
+
+  if(strlen(pass) < 8)
     {
-    msg(win, "email invalide");
+      msg(win, "Le mot de passe doit contenit au mois 8 caratères");
+      return;
     }
 
 }
