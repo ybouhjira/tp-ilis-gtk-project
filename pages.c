@@ -148,5 +148,9 @@ Widget *page_etudiant_creer()
 
   g_signal_connect(G_OBJECT(pgEtud.diplome), "changed",
                    G_CALLBACK(cacher_notes), widgetsNotes);
+
+  g_signal_connect(G_OBJECT(okBtn), "clicked",
+                   G_CALLBACK(ajouter_etudiant), NULL);
+
   return frame;
 }

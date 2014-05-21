@@ -12,4 +12,7 @@ void cacher_notes(Widget *dipl, void* widgets);
 // inscrire un étudiant
 void inscrire_etudiant(Widget *btn, void* widgets);
 
+// Ajouter etudiant
+void ajouter_etudiant(Widget *btn, void* data);
+
 #endif // CALLBACKS_H
