@@ -25,7 +25,8 @@ HEADERS += \
     callbacks.h \
     file.h \
     macros/list.h \
-    macros/warn.h
+    macros/warn.h \
+    mainstack.h
 
 INCLUDEPATH += /usr/include/gtk-3.0 \
 /usr/include/glib-3.0 \

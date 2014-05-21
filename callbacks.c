@@ -1,10 +1,11 @@
 #include "callbacks.h"
-#include "etudiant.h"
 #include "macros/etiquette.h"
 #include "macros/list.h"
 #include "macros/conteneurs.h"
 #include "macros/case.h"
 #include "macros/warn.h"
+#include "pages.h"
+#include "mainstack.h"
 
 #include <string.h>
 
@@ -16,12 +17,12 @@ void cacher_notes(Widget *dipl, void *widgets)
   Diplome actvDipl = str_to_dipl(list_actif(dipl));
   int nbrNotes = nbr_notes(actvDipl), i;
 
-  for(i = 0; i < nbrNotes; ++i) widget_afficher(notes[i], TRUE);
-  for(i = NBR_NOTES; i < NBR_NOTES * 2; ++i) widget_afficher(notes[i], TRUE);
+  for(i = 0; i < nbrNotes; ++i) widget_visible(notes[i], TRUE);
+  for(i = NBR_NOTES; i < NBR_NOTES * 2; ++i) widget_visible(notes[i], TRUE);
 
-  for(i = nbrNotes; i < NBR_NOTES; ++i) widget_afficher(notes[i], FALSE);
+  for(i = nbrNotes; i < NBR_NOTES; ++i) widget_visible(notes[i], FALSE);
   for(i = NBR_NOTES + nbrNotes; i < NBR_NOTES * 2; ++i)
-    widget_afficher(notes[i], FALSE);
+    widget_visible(notes[i], FALSE);
 
   if(actvDipl == CPGE) etiquette_text(notes[NBR_NOTES], "Classement");
   else
@@ -43,7 +44,7 @@ void inscrire_etudiant(Widget *btn, void* widgets)
 
   if(!g_regex_match(regexEmail, email, 0, 0))
     {
-      msg(win, "email invali");
+      msg(win, "Adresse e-mail invalide");
       return;
     }
 
@@ -53,5 +54,9 @@ void inscrire_etudiant(Widget *btn, void* widgets)
       return;
     }
 
+  case_set_text(pgEtud.email, email);
+  widget_actif(pgEtud.email, FALSE);
+
+  conteneur_pile_afficher(mainStack, "etudiant");
 
 }

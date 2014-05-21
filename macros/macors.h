@@ -54,6 +54,7 @@ typedef GtkWidget Widget;
 #define lancer      gtk_main
 #define quitter     gtk_main_quit
 
-#define widget_afficher gtk_widget_set_visible
+#define widget_visible gtk_widget_set_visible
+#define widget_actif gtk_widget_set_sensitive
 
 #endif // MACROS_H
