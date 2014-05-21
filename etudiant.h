@@ -19,6 +19,7 @@ typedef struct Etudiant
 {
     char nom[20];
     char prenom[20];
+    char email[100];
 
     char motDePasse[25];
     char cin[20];
